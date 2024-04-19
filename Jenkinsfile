@@ -12,7 +12,7 @@ pipeline {
         stages {
             stage('Checkout') {
               steps {
-                  git branch: 'master', url: 'https://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@github.com/hunkOraboni/gemini_teste_code'
+                  git branch: 'main', url: 'https://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@github.com/hunkOraboni/gemini_teste_code'
                   stash includes: '**/*', name: 'gemini_teste_code'
               }
             }
@@ -32,7 +32,7 @@ pipeline {
                                   sh 'pip install --upgrade requests'
                                   //sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework dockerfile --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/teste_esteira --branch master'
                                   //sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework dockerfile  --framework secrets --framework github_actions --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/teste_esteira --branch master'
-                                  sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework sast --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/gemini_teste_code --branch master'
+                                  sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework sast --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/gemini_teste_code --branch main'
                                   //--framework dockerfile
                                   //sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/teste_esteira --branch master'
                                   //junit skipPublishingChecks: true, testResults: 'results.xml'
@@ -61,7 +61,7 @@ pipeline {
                                   sh 'pip install --upgrade requests'
                                   //sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework dockerfile --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/teste_esteira --branch master'
                                   //sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework dockerfile  --framework secrets --framework github_actions --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/teste_esteira --branch master'
-                                  sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework all --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/gemini_teste_code --branch master'
+                                  sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework all --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/gemini_teste_code --branch main'
                                   //--framework dockerfile
                                   //sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/teste_esteira --branch master'
                                   //junit skipPublishingChecks: true, testResults: 'results.xml'
@@ -120,7 +120,7 @@ pipeline {
                                   sh 'pip install --upgrade requests'
                                   //sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework dockerfile --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/teste_esteira --branch master'
                                   //sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --framework dockerfile  --framework secrets --framework github_actions --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/teste_esteira --branch master'
-                                  sh 'checkov -d . --use-enforcement-rules --image gemini_teste_code_demo_image -o cli -o junitxml --framework all --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/gemini_teste_code --branch master'
+                                  sh 'checkov -d . --use-enforcement-rules --image gemini_teste_code_demo_image -o cli -o junitxml --framework all --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/gemini_teste_code --branch main'
                                   //--framework dockerfile
                                   //sh 'checkov -d . --use-enforcement-rules -o cli -o junitxml --output-file-path console,results.xml --bc-api-key ${pc_user}::${pc_password} --repo-id  hunkOraboni/teste_esteira --branch master'
                                   //junit skipPublishingChecks: true, testResults: 'results.xml'

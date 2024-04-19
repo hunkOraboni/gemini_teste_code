@@ -1,23 +1,20 @@
 # Define the base image
 FROM maven:3.9.6-eclipse-temurin-11-alpine
 
-# Create the application directory
+# Create the application directory (optional, but explicit)
 WORKDIR /usr/src/myapp
 
-# Copy the application files from the current context
+# Copy all contents from the current context to the workdir
 COPY . .
 
 # Set the environment variable for the token
-ENV TOKEN=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
+ENV TOKEN=ghp_EprEZK00EHIfCDoX3LTJITHWRhXGCJ2T6I
 
 # Print the token (for verification purposes)
 RUN echo $TOKEN
 
-# Install dependencies and build the application
-RUN mvn clean install
-
-# Run the application
-CMD ["java", "-jar", "target/hello-world-app-1.0-SNAPSHOT.jar"]
+# Run the application using spring-boot:run command
+CMD ["mvn", "spring-boot:run"]
 
 # Expose the port for container communication
 EXPOSE 8090

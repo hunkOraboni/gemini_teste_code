@@ -1,0 +1,22 @@
+name: Build Repo Image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-base-image:
+    name: Build Repo Image
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ secrets.GH_CLI }}
+    steps:
+    - name: checkout current repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Run Docker Build
+      run: |
+        ls -la
+        echo $GH_TOKEN | docker login ghcr.io -u hunkOraboni --password-stdin
+        docker build -t minha-repo-imagem:latest -f Dockerfile .
+        docker images

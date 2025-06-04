@@ -18,5 +18,5 @@ jobs:
       run: |
         ls -la
         echo $GH_TOKEN | docker login ghcr.io -u hunkOraboni --password-stdin
-        docker build -t minha-repo-imagem:latest -f Dockerfile .
+        docker build -t minha-repo-imagem:latest -f Dockerfile2 .
         docker images

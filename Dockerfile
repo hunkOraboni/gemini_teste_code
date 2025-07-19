@@ -1,5 +1,5 @@
 # Define the base image
-FROM maven:3.9.6-eclipse-temurin-11-alpine
+FROM maven:3.9.11-eclipse-temurin-11-alpine
 
 # Create the application directory (optional, but explicit)
 WORKDIR /usr/src/myapp
